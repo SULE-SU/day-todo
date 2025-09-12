@@ -1,39 +1,24 @@
-import {createContext, useContext, useReducer} from "react";
+import {useReducer} from "react";
+import "./App.css"
+import {todoReducer} from "./reducer/TodoReducer";
+import {TodoGroup} from "./components/TodoGroup";
+import {TodoContext} from "./contexts/TodoContext";
+
 
 export const initState = [
-  {id: 1, text: "the first todo", done: false},
-  {id: 2, text: "the second todo", done: false},
+    {id: 1, text: "the first todo", done: false},
+    {id: 2, text: "the second todo", done: false},
 ];
-export const TodoContext = createContext()
-
-function TodoItem(props) {
-    return <div className="todo-item">
-        <span className={props.todo.done ? "done" : ""}></span>
-        {props.todo.text}
-    </div>
-}
-function TodoGroup() {
-    const {state, dispatch} = useContext(TodoContext);
-    return <div>
-          {state.map((item,index) =>{
-              return <TodoItem todo={item} key={index} index={{index}}/>
-          })}
-    </div>
-}
-
-export function todoReducer(state, action) {
-  return state
-}
 
 function App() {
-  const [state, dispatch] = useReducer(todoReducer, initState);
-  return (
-      <div>
-        <TodoContext.Provider value={{state, dispatch}}>
-          <TodoGroup/>
-        </TodoContext.Provider>
-      </div>
-  );
+    const [state, dispatch] = useReducer(todoReducer, initState);
+    return (
+        <div>
+            <TodoContext value={{state, dispatch}}>
+                <TodoGroup/>
+            </TodoContext>
+        </div>
+    );
 }
 
 export default App;
