@@ -2,19 +2,29 @@ import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import {api} from "../api/mockApi";
 
+const updateTodo = (props) => {
+    return api.put(`/todos/${props.todo.id}`, {text: props.todo.text, done: !props.todo.done})
+        .then(response => response.data);
+}
+
+const maveTodo = (props) => {
+    return api.delete(`/todos/${props.todo.id}`)
+        .then(response => response.data);
+};
+
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext);
 
     function makeAsDone() {
-        api.put(`/todos/${props.todo.id}`, {done: true})
-            .then(() => dispatch({
-                type: "TOGGLE_TODO",
-                payload: {id: props.todo.id}
+        updateTodo(props)
+            .then((todo) => dispatch({
+                type: "UPDATE_TODO",
+                payload:todo
             }))
     }
 
     function deleteTodo() {
-        api.delete(`/todos/${props.todo.id}`)
+        maveTodo(props)
             .then(() => dispatch({
                 type: "DELETE_TODO",
                 payload: {id: props.todo.id}
