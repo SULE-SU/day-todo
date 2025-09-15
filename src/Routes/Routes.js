@@ -4,6 +4,7 @@ import {ErrorPage} from "../pages/ErrorPage";
 import {HomePage} from "../pages/HomePage";
 import {TodoDetailPage} from "../pages/TodoDetailPage";
 import {DoneListPage} from "../pages/DoneListPage";
+import {AboutUs} from "../pages/AboutUs";
 
 export const routes = createBrowserRouter([
     {
@@ -22,7 +23,11 @@ export const routes = createBrowserRouter([
             {
                 path: "/dones",
                 element: <DoneListPage />,
-            }
+            },
+            {
+                path: "/aboutus",
+                element: <AboutUs />,
+            },
 
         ]
     }
