@@ -1,7 +1,6 @@
 import {useContext} from "react";
 import {TodoItem} from "./TodoItem";
 import {TodoContext} from "../contexts/TodoContext";
-import {TodoGenerator} from "./TodoGenerator";
 
 export function TodoGroup() {
     const {state} = useContext(TodoContext);
