@@ -2,9 +2,9 @@ import {useReducer} from "react";
 import "./App.css"
 import {todoReducer} from "./reducer/TodoReducer";
 import {TodoContext} from "./contexts/TodoContext";
-import {TodoList} from "./components/TodoList";
 import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
 import {ErrorPage} from "./pages/ErrorPage";
+import {HomePage} from "./pages/HomePage";
 
 function DefaultLayout() {
     return <div>
@@ -19,10 +19,6 @@ function DefaultLayout() {
             <Outlet />
         </main>
     </div>
-}
-
-function HomePage() {
-    return <TodoList />
 }
 
 const routes= createBrowserRouter([
