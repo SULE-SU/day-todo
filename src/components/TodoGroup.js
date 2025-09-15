@@ -4,7 +4,7 @@ import {TodoContext} from "../contexts/TodoContext";
 import {TodoGenerator} from "./TodoGenerator";
 
 export function TodoGroup() {
-    const {state, dispatch} = useContext(TodoContext);
+    const {state} = useContext(TodoContext);
 
     return <div className="todo-group">
         <div className="todo-list">
@@ -18,7 +18,6 @@ export function TodoGroup() {
                 })
             )}
         </div>
-        <TodoGenerator />
     </div>
 }
 
