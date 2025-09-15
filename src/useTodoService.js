@@ -16,10 +16,17 @@ export function useTodoService() {
             .then(response => response.data);
     }
 
+    const updateTodoText = (editProps) => {
+        return api.put(`/todos/${editProps.todo.id}`, {
+            text: editProps.todo.text,
+            done: editProps.todo.done
+        }).then(response => response.data);
+    }
+
     const maveTodo = (props) => {
         return api.delete(`/todos/${props.todo.id}`)
             .then(response => response.data);
     }
 
-    return {loadTodos, createTodo, updateTodo, maveTodo}
+    return {loadTodos, createTodo, updateTodo, updateTodoText, maveTodo}
 }
