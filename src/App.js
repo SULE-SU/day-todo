@@ -12,7 +12,7 @@ function App() {
 
     useEffect(() => {
         loadTodos().then(todos => dispatch({type: "LOAD_TODOS", payload: todos}))
-    }, [dispatch, loadTodos])
+    }, [])
     return (
         <div className="app">
             <TodoContext.Provider value={{state, dispatch}}>
