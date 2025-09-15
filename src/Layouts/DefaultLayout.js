@@ -3,13 +3,12 @@ import {NavLink, Outlet} from "react-router";
 export function DefaultLayout() {
     return <div>
         <header>
-            <nav>
-                <ul>
-                    <li><NavLink to="/">Home</NavLink></li>
-                    <li><NavLink to="/dones">DoneList</NavLink></li>
-                    <li><NavLink to="/aboutus">AboutUs</NavLink></li>
-                </ul>
+            <nav className="nav">
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/dones">DoneList</NavLink>
+                <NavLink to="/aboutus">AboutUs</NavLink>
             </nav>
+
         </header>
         <main>
             <Outlet/>

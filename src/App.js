@@ -19,7 +19,7 @@ function App() {
     useEffect(() => {
         api.get("/todos").then(response => response.data)
             .then(todos => dispatch({type: "LOAD_TODOS", payload: todos}))
-    }, [])
+    }, [dispatch])
     return (
         <div className="app">
             <TodoContext.Provider value={{state, dispatch}}>
