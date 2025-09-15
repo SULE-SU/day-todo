@@ -35,26 +35,47 @@
   outline: none;
 }
 
-.add-btn, .delete-btn {
-  padding: 12px 24px;
+.add-btn, .delete-btn, .detail-btn {
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
   transition: background-color 0.3s;
 }
 
 .add-btn {
-  background-color: #4CAF50;
+  padding: 12px 24px;
+  background-color: #666666;
+  font-size: 16px;
 }
 
 .add-btn:hover {
   background-color: #45a049;
 }
 
+.delete-btn, .detail-btn {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.delete-btn {
+  background-color: #666666;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+}
+
+.detail-btn {
+  background-color: #666666;
+}
+
+.add-btn:hover, .delete-btn:hover, .detail-btn:hover {
+  opacity: 0.9;
+}
+
 .todo-item {
   padding: 15px;
+  margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 8px;
   display: flex;
@@ -81,11 +102,9 @@
   opacity: 0.6;
 }
 
-.delete-btn {
-  background-color: black;
-  padding: 0;
-  width: 30px;
-  height: 30px;
+.todo-actions {
+  display: flex;
+  gap: 5px;
 }
 
 .empty-state {
@@ -93,24 +112,3 @@
   padding: 40px;
   color: #666;
 }
-
-.todo-actions {
-  display: flex;
-  gap: 5px;
-}
-
-.detail-btn {
-  background-color: #2196F3;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s;
-}
-
-.detail-btn:hover {
-  background-color: #1976D2;
-}
-
