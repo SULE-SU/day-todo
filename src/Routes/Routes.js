@@ -21,6 +21,10 @@ export const routes = createBrowserRouter([
                 element: <DoneListPage />,
             },
             {
+                path: "/todo/:id",
+                element: <TodoDetailPage />,
+            },
+            {
                 path: "/aboutus",
                 element: <AboutUs />,
             },

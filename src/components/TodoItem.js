@@ -1,11 +1,13 @@
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import {useTodoService} from "../useTodoService";
+import {useNavigate} from "react-router";
 
 
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext);
     const {updateTodo, maveTodo} = useTodoService();
+    const navigate = useNavigate();
 
     function makeAsDone() {
         updateTodo(props)
@@ -24,7 +26,11 @@ export function TodoItem(props) {
     }
 
     function detailTodo() {
-        alert(`ID: ${props.todo.id}\n内容: ${props.todo.text}\n状态: ${props.todo.done ? '已完成' : '未完成'}`);
+        if (props.todo.done) {
+            navigate(`/todo/${props.todo.id}`)
+        }else {
+            navigate(`/todo/${props.todo.id}`)
+        }
     }
 
     return <div className={"todo-item"}>
