@@ -2,7 +2,7 @@ import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 
 export function TodoGenerator() {
-    const {state, dispatch} = useContext(TodoContext);
+    const {dispatch} = useContext(TodoContext);
     const [inputValue, setInputValue] = useState("");
 
     function addTodo() {
@@ -12,12 +12,6 @@ export function TodoGenerator() {
                 payload: {text: inputValue}
             });
             setInputValue("");
-        }
-    }
-
-    function handleKeyPress(e) {
-        if (e.key === 'Enter') {
-            addTodo();
         }
     }
 
