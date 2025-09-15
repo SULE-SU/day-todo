@@ -16,12 +16,7 @@ export function todoReducer(state, action) {
                 return value
             })
         case "ADD_TODO":
-            const newId = state.length > 0 ? Math.max(...state.map(todo => todo.id)) + 1 : 1;
-            return [...state, {
-                id: newId,
-                text: action.payload.text,
-                done: false
-            }];
+            return [...state, action.payload];
         case "DELETE_TODO":
             return state.filter(todo => todo.id !== action.payload.id);
         default:
