@@ -1,7 +1,7 @@
 import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import {useTodoService} from "../useTodoService";
-import {Input, Button, Space} from "antd";
+import {Input, Button} from "antd";
 import {PlusOutlined} from "@ant-design/icons";
 
 export function TodoGenerator() {
