@@ -13,8 +13,7 @@ const loadTodos = () => {
 function App() {
     const [state, dispatch] = useReducer(todoReducer, []);
     useEffect(() => {
-        loadTodos()
-            .then(todos => dispatch({type: "LOAD_TODOS", payload: todos}))
+        loadTodos().then(todos => dispatch({type: "LOAD_TODOS", payload: todos}))
     }, [dispatch])
     return (
         <div className="app">
