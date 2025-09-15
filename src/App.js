@@ -3,7 +3,14 @@ import "./App.css"
 import {todoReducer} from "./reducer/TodoReducer";
 import {TodoContext} from "./contexts/TodoContext";
 import {TodoList} from "./components/TodoList";
+import {createBrowserRouter, RouterProvider} from "react-router";
 
+const routes= createBrowserRouter([
+    {
+        path: "/",
+        element: <TodoList />,
+    },
+]);
 
 export const initState = [
     {id: 1, text: "这是我需要做的第一件事", done: false},
@@ -16,8 +23,7 @@ function App() {
     return (
         <div className="app">
             <TodoContext.Provider value={{state, dispatch}}>
-                <h1>待办事项列表</h1>
-                <TodoList />
+                <RouterProvider router={routes} />
             </TodoContext.Provider>
         </div>
     );
