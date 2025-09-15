@@ -1,18 +1,25 @@
-import {useReducer} from "react";
+import {useEffect, useReducer} from "react";
 import "./App.css"
 import {todoReducer} from "./reducer/TodoReducer";
 import {TodoContext} from "./contexts/TodoContext";
 import {RouterProvider} from "react-router";
 import {routes} from "./Routes/Routes";
+import axios from "axios";
 
-export const initState = [
-    {id: 1, text: "这是我需要做的第一件事", done: false},
-    {id: 2, text: "这是第二件我需要做的事情", done: false},
-    {id: 3, text: "我已经完成了这个任务", done: true},
-];
 
+const  api = axios.create({
+    baseURL: "https://68c7ac955d8d9f5147328890.mockapi.io/",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    timeout: 10_000,
+});
 function App() {
-    const [state, dispatch] = useReducer(todoReducer, initState);
+    const [state, dispatch] = useReducer(todoReducer, []);
+    useEffect(() => {
+        api.get("/todos").then(response => response.data)
+            .then(todos => dispatch({type: "LOAD_TODOS", payload: todos}))
+    }, [])
     return (
         <div className="app">
             <TodoContext.Provider value={{state, dispatch}}>
