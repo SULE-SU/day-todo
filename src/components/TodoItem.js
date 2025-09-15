@@ -1,19 +1,11 @@
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
-import {api} from "../api/mockApi";
+import {useTodoService} from "../useTodoService";
 
-const updateTodo = (props) => {
-    return api.put(`/todos/${props.todo.id}`, {text: props.todo.text, done: !props.todo.done})
-        .then(response => response.data);
-}
-
-const maveTodo = (props) => {
-    return api.delete(`/todos/${props.todo.id}`)
-        .then(response => response.data);
-};
 
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext);
+    const {updateTodo, maveTodo} = useTodoService();
 
     function makeAsDone() {
         updateTodo(props)
