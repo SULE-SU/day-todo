@@ -18,6 +18,10 @@ export function TodoItem(props) {
         })
     }
 
+    function detailTodo() {
+        alert(`ID: ${props.todo.id}\n内容: ${props.todo.text}\n状态: ${props.todo.done ? '已完成' : '未完成'}`);
+    }
+
     return <div className={"todo-item"}>
         <span
             className={props.todo.done ? "todo-done" : ""}
@@ -25,6 +29,9 @@ export function TodoItem(props) {
         >
             {props.todo.text}
         </span>
-        <button className="delete-btn" onClick={deleteTodo}>X</button>
+        <div className="todo-actions">
+            <button className="detail-btn" onClick={detailTodo}>详情</button>
+            <button className="delete-btn" onClick={deleteTodo}>X</button>
+        </div>
     </div>;
 }
