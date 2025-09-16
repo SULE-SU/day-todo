@@ -14,7 +14,7 @@ export function AboutUs() {
         <div className="about-us">
             <Title level={2}>关于我们</Title>
             <div className="about-content">
-                <Title level={3}>hi I am Leo</Title>
+                <Title level={3}>hi I am paopao</Title>
                 <Paragraph>欢迎使用我们的待办事项应用！</Paragraph>
 
                 <Divider/>
